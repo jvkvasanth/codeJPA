@@ -39,7 +39,7 @@ class StudentRepositoryTest {
         Student student = Student.builder()
                 .firstName("Vasanthakumar")
                 .lastName("Jagannathan")
-                .emailId("vasanth2@gmail.com")
+                .emailId("vasanth3@gmail.com")
                 .guardian(guardian).build();
 
         studentRepository.save(student);
@@ -51,6 +51,24 @@ class StudentRepositoryTest {
     @Test
     public void getStudents() {
         List<Student> students = studentRepository.findAll();
+        System.out.println("All the students ->" + students);
+    }
+
+    @Test
+    public void getStudentsByEmailId() {
+       Student students = studentRepository.findByEmailId("vasanth3@gmail.com");
+        System.out.println("All the students ->" + students);
+    }
+
+    @Test
+    public void getByEmailIdJPQL() {
+        Student students = studentRepository.findByEmailIdJPQL("vasanth3@gmail.com");
+        System.out.println("All the students ->" + students);
+    }
+
+    @Test
+    public void getByEmailIdNQuery() {
+        Student students = studentRepository.findByEmailIdNQuery("vasanth3@gmail.com");
         System.out.println("All the students ->" + students);
     }
 }
