@@ -71,4 +71,19 @@ class StudentRepositoryTest {
         Student students = studentRepository.findByEmailIdNQuery("vasanth3@gmail.com");
         System.out.println("All the students ->" + students);
     }
+
+    @Test
+    public void getByEmailIdNQuerybyNamedParam() {
+        Student students = studentRepository.findByEmailIdNQuerybyNamedParam("vasanth3@gmail.com");
+        System.out.println("All the students ->" + students);
+    }
+
+    @Test
+    public void updateNameByEmailId() {
+        int val = studentRepository.updateNameByEmailId("vasanth","vasanth3@gmail.com");
+        System.out.println("All the students ->" + val);
+
+        Student students = studentRepository.findByEmailIdNQuery("vasanth3@gmail.com");
+        System.out.println("All the students ->" + students.getFirstName());
+    }
 }
